@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: qotd-frontend
+  labels:
+    {{- include "qotd.labels" . | nindent 4 }}
+    app: qotd-frontend
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: qotd-frontend
+  type: ClusterIP
